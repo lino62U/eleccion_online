@@ -23,7 +23,9 @@ Ejemplo
       throw error;
     }
   }
-### Persistent-tables (pages/api/services/voto.js)**
+```
+### Persistent-tables (pages/api/services/voto.js)
+```
 Los datos de entrada del problema se modelan como entidades con relaciones entre ellas
 Los datos se colocan en tablas, con columnas que potencialmente hacen referencia cruzada a datos en otras tablas
 Existencia de un motor de consulta relacional
@@ -55,8 +57,9 @@ export default async function handleVoto(req, res) {
     res.status(500).json({ error: "Error en el servidor" });
   }
 }
-
+```
 ### code-golf
+```
 Tan pocas líneas de código como sea posible
 Funciones flecha:las funciones de flecha proporcionan una forma concisa de escribir funciones en JavaScript.
 Ejemplo:
