@@ -50,4 +50,5 @@ export default async function handlePartidoPolitico(req, res) {
     res.status(500).json({ error: "Error en el servidor" });
   }
 }
-//-Creacion de clases
+//- Destructuracion
+/*La desestructuración de accesorios y estados hace que el código sea más conciso y legible*/
