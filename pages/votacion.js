@@ -11,41 +11,48 @@ import Success from "@/ldavis/Componentes/Success";
 
 export default function Votacion() {
   const [partidos, setPartidos] = useState([]);
-  const [isOpen,setIsOpen] = useState(false)
-  const [isSuccess,setIsSuccess] = useState(false)
-  const [success,setSuccess] = useState(false)
-  const [voto,setVoto] = useState({
-    id_elector:0,
-    id_partido:0,
-    fecha:new Date(),
-  })
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [voto, setVoto] = useState({
+    id_elector: 0,
+    id_partido: 0,
+    fecha: new Date(),
+  });
   const router = useRouter();
 
   useEffect(() => {
     handleCandidatos();
     getProfile();
   }, []);
+
+  // Obtiene el perfil del usuario actual
   const getProfile = async () => {
     const res = await axios.get("/api/profile");
     setVoto({
       ...voto,
       id_elector: res.data.id,
-    })
+    });
   };
+
+  // Cierra sesión del usuario actual
   const logout = async () => {
     try {
-      const res = await axios.post("api/auth/logout");
+      await axios.post("api/auth/logout");
       router.push("/");
     } catch (err) {
       console.log(err);
       router.push("/");
     }
   };
+
+  // Obtiene los candidatos de los partidos políticos
   const handleCandidatos = async () => {
     const res = await PartidosPoliticos.getPartidos();
     setPartidos(res.data);
   };
 
+  // Maneja el envío del voto
   const handleSubmit = async (e) => {
     if (voto.id_partido) {
       console.log("Partido seleccionado:", voto.id_partido);
@@ -55,7 +62,6 @@ export default function Votacion() {
         // La petición fue exitosa
         if (res.status === 200) {
           setSuccess(true);
-
         }
       } catch (error) {
         // Si ocurre un error en la petición (por ejemplo, status 401)
@@ -66,77 +72,71 @@ export default function Votacion() {
           console.log("Error en la petición:", error);
         }
         setSuccess(false);
-
       }
     } else {
       console.log("Debes seleccionar un partido antes de votar");
     }
     setIsOpen(false);
-    setIsSuccess(true)
+    setIsSuccess(true);
+  };
 
-  };return (
-      <div>
-        <Layout pagina={"Votacion"}>
-          <Time time={10} />
-          <div>
-            {partidos.length > 0 ? (
-                <form>
-                  <table>
-                    <thead>
-                    <tr>
-                      <th>id</th>
-                      <th>Partido</th>
-                      <th>Logo</th>
-                      <th>Seleccionar</th> {/* Nueva columna para los radio buttons */}
+  return (
+    <div>
+      <Layout pagina={"Votacion"}>
+        <Time time={10} />
+        <div>
+          {partidos.length > 0 ? (
+            <form>
+              <table>
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Partido</th>
+                    <th>Logo</th>
+                    <th>Seleccionar</th> {/* Nueva columna para los radio buttons */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {partidos.map((e) => (
+                    <tr key={e.id}>
+                      <td>{e.id}</td>
+                      <td>{e.partido}</td>
+                      <td>
+                        <img
+                          src={"/partidos/" + e.partido + ".png"}
+                          alt={"Cargando"}
+                          style={{ width: "100px", height: "100px" }}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="radio"
+                          name="partido"
+                          value={e.id}
+                          onChange={() => setVoto({ ...voto, id_partido: e.id })}
+                        />
+                      </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {partidos.map((e) => (
-                        <tr key={e.id}>
-                          <td>{e.id}</td>
-                          <td>{e.partido}</td>
-                          <td>
-                            <img
-                                src={"/partidos/" + e.partido + ".png"}
-                                alt={"Cargando"}
-                                style={{ width: "100px", height: "100px" }}
-                            />
-                          </td>
-                          <td>
-                            <input
-                                type="radio"
-                                name="partido"
-                                value={e.id}
-                                onChange={() =>
-                                    setVoto({ ...voto, id_partido: e.id })
-                                }
-                            />
-                          </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                  </table>
-                  <Success
-                      show={isSuccess}
-                      handleClose={logout}
-                      isSuccess={success}
-                  />
-                  <Verify
-                      isOpen={isOpen}
-                      onRequestClose={() => setIsOpen(false)}
-                      onConfirm={handleSubmit}
-                      text={"Estas seguro de tu voto?"}
-                  />
-                  <button onClick={(e) => {
-                    e.preventDefault();
-                    setIsOpen(true);
-                  }}>Votar</button>
-                </form>
-            ) : (
-                <div>Vacio</div>
-            )}
-          </div>
-        </Layout>
-      </div>
+                  ))}
+                </tbody>
+              </table>
+              <Success show={isSuccess} handleClose={logout} isSuccess={success} />
+              <Verify
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+                onConfirm={handleSubmit}
+                text={"Estas seguro de tu voto?"}
+              />
+              <button onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(true);
+              }}>Votar</button>
+            </form>
+          ) : (
+            <div>Vacio</div>
+          )}
+        </div>
+      </Layout>
+    </div>
   );
 }
