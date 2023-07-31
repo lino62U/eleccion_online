@@ -13,6 +13,7 @@ pnpm dev
 ```
 
 ## Estilos de programación aplicados:
+```javascript
 - Uso de camelCase:(Page/Votacion.js)
 
   const [partidos, setPartidos] = useState([]);
