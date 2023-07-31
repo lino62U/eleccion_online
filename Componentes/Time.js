@@ -3,46 +3,55 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-export default function Time({time = 10}) {
-    const router = useRouter();
-    const [exp, setExp] = useState(time);
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setExp((prevTime) => prevTime - 1);
-        }, 1000);
+const Time = ({ time = 10 }) => {
+  const router = useRouter();
+  const [exp, setExp] = useState(time);
 
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
+  // Actualizar el tiempo restante cada segundo
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setExp((prevTime) => prevTime - 1);
+    }, 1000);
 
-    useEffect(() => {
-        if (exp === 0) {
-            logout();
-            router.push("/");
-        }
-    }, [exp, router]);
-
-    const logout = async () => {
-        try {
-            const res = await axios.post("api/auth/logout");
-            router.push("/");
-        } catch (err) {
-            console.log(err);
-            router.push("/");
-        }
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => {
+      clearInterval(timer);
     };
-    const formatTime = (seconds) => {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const remainingSeconds = seconds % 60;
+  }, []);
 
-        return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
-    };
+  // Redirigir al usuario a la página de inicio cuando el tiempo expire
+  useEffect(() => {
+    if (exp === 0) {
+      logout();
+      router.push("/");
+    }
+  }, [exp, router]);
 
-    return (
-        <div>
-            {formatTime(exp)}
-        </div>
-    );
-}
+  // Cerrar sesión del usuario
+  const logout = async () => {
+    try {
+      await axios.post("api/auth/logout");
+      router.push("/");
+    } catch (err) {
+      console.log(err);
+      router.push("/");
+    }
+  };
+
+  // Formatear el tiempo en formato HH:MM:SS
+  const formatTime = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+  };
+
+  return (
+    <div>
+      {formatTime(exp)}
+    </div>
+  );
+};
+
+export default Time;
