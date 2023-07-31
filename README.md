@@ -13,7 +13,13 @@ pnpm dev
 ```
 
 ## Estilos de programación aplicados:
-- Uso de camelCase y PascalCase
+- Uso de camelCase:
+
+  const [partidos, setPartidos] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
+  
 - Manejo de Errores : (Data/Repositorio/PartidosPoliticos.js)
   static async getPartidos() {
     try {
