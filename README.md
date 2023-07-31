@@ -35,3 +35,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
       onConfirm={handleSubmit}
       text={"Estas seguro de tu voto?"}
     />
+//-Comentarios
+//-Creacion de clases
