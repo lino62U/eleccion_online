@@ -50,5 +50,6 @@ export default async function handlePartidoPolitico(req, res) {
     res.status(500).json({ error: "Error en el servidor" });
   }
 }
-//- Destructuracion
+//- Destructuracion in next.js (pages/api/services)
 /*La desestructuración de accesorios y estados hace que el código sea más conciso y legible*/
+const { id_elector, id_partido, fecha } = req.body;
