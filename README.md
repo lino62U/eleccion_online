@@ -8,6 +8,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Data/Repositorio/PartidosPoliticos.js
 - Data/Repositorio/SendVoto.js
 ```
+## Estilos de programacion
+```
+-
+-
+-
+```
 ## Convenciones de programación aplicados:
 ```javascript
 //- Uso de camelCase:(Page/Votacion.js)
