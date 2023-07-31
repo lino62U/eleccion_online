@@ -12,7 +12,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```
 -Tantrum (Data/Repositorio/SendVoto.js)
 Estilo de programacion para el manejo de errores a traves de excepciones
-
+Ejemplo
 // Enviar el voto al backend
   static async Sufragar(voto) {
     try {
@@ -59,6 +59,7 @@ export default async function handleVoto(req, res) {
 -code-golf
 Tan pocas líneas de código como sea posible
 Funciones flecha:las funciones de flecha proporcionan una forma concisa de escribir funciones en JavaScript.
+Ejemplo:
 const getProfile = async () => {
     const res = await axios.get("/api/profile");
     setVoto({
