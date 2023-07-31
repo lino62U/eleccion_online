@@ -10,7 +10,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```
 ## Estilos de programacion
 ```
--Tantrum (Data/Repositorio/SendVoto.js)
+### Tantrum (Data/Repositorio/SendVoto.js)
 Estilo de programacion para el manejo de errores a traves de excepciones
 Ejemplo
 // Enviar el voto al backend
@@ -23,7 +23,7 @@ Ejemplo
       throw error;
     }
   }
-**Persistent-tables (pages/api/services/voto.js)**
+### Persistent-tables (pages/api/services/voto.js)**
 Los datos de entrada del problema se modelan como entidades con relaciones entre ellas
 Los datos se colocan en tablas, con columnas que potencialmente hacen referencia cruzada a datos en otras tablas
 Existencia de un motor de consulta relacional
@@ -56,7 +56,7 @@ export default async function handleVoto(req, res) {
   }
 }
 
--code-golf
+### code-golf
 Tan pocas líneas de código como sea posible
 Funciones flecha:las funciones de flecha proporcionan una forma concisa de escribir funciones en JavaScript.
 Ejemplo:
