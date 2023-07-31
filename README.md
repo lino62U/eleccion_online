@@ -7,7 +7,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - pages/api/services/partido_politico.js
 - Data/Repositorio/PartidosPoliticos.js
 - Data/Repositorio/SendVoto.js
-- 
 ```
 ## Estilos de programación aplicados:
 ```javascript
