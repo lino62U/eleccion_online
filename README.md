@@ -9,10 +9,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Data/Repositorio/SendVoto.js
 ```
 ## Estilos de programacion
-```
+
 ### Tantrum (Data/Repositorio/SendVoto.js)
 Estilo de programacion para el manejo de errores a traves de excepciones
 Ejemplo
+```javascript
 // Enviar el voto al backend
   static async Sufragar(voto) {
     try {
