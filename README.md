@@ -12,7 +12,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```
 -
 -Funciones: use funciones de flecha a menos que tenga una razón específica para usar funciones regulares, como en métodos de objetos o constructores, debido a cómo funciona esto. Declararlos como const, y usar retornos implícitos si es posible.
-
+const getProfile = async () => {
+    const res = await axios.get("/api/profile");
+    setVoto({
+      ...voto,
+      id_elector: res.data.id,
+    });
+  };
 -
 ```
 ## Convenciones de programación aplicados:
