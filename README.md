@@ -78,14 +78,16 @@ const getProfile = async () => {
 
 ```
 ## Convenciones de programación aplicados:
+### Names rules
+Uso de camelCase:(Page/Votacion.js)
 ```javascript
-//- Uso de camelCase:(Page/Votacion.js)
 
   const [partidos, setPartidos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [success, setSuccess] = useState(false);
-  
+```
+###   
 //- Manejo de Errores : (Data/Repositorio/PartidosPoliticos.js)
   static async getPartidos() {
     try {
@@ -96,7 +98,9 @@ const getProfile = async () => {
       throw error;
     }
   }
-//- Linea de codigo menor que 80 caracteres (Page/Votacion.js)
+### Limit Line Length
+Linea de codigo menor que 80 caracteres (Page/Votacion.js)
+```javascript
     <Success show={isSuccess} handleClose={logout} isSuccess={success} />
     <Verify
       isOpen={isOpen}
@@ -104,8 +108,10 @@ const getProfile = async () => {
       onConfirm={handleSubmit}
       text={"Estas seguro de tu voto?"}
     />
-//-Comentarios (page/api/services/PartidoPolitico.js
-
+```
+### Comments rules
+Comentarios (page/api/services/PartidoPolitico.js
+```
 export default async function handlePartidoPolitico(req, res) {
   try {
     // Realiza una consulta a la base de datos para obtener los datos de partido_politico
@@ -119,6 +125,8 @@ export default async function handlePartidoPolitico(req, res) {
     res.status(500).json({ error: "Error en el servidor" });
   }
 }
+```
+### 
 //- Destructuracion in next.js (pages/api/services)
 /*La desestructuración de accesorios y estados hace que el código sea más conciso y legible. En lugar de escribir "props.title", puedes escribir "const {title} = props".*/
 const { id_elector, id_partido, fecha } = req.body;
