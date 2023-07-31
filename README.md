@@ -1,19 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 ## Trabajo encargado:
+```bash
 - pages/votacion.js
-- Data/Repositorio/
+- pages/api/services/voto.js
+- pages/api/services/partido_politico.js
+- Data/Repositorio/PartidosPoliticos.js
+- Data/Repositorio/SendVoto.js
+- 
+```
 ## Estilos de programación aplicados:
 ```javascript
 //- Uso de camelCase:(Page/Votacion.js)
