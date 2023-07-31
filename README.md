@@ -13,7 +13,7 @@ pnpm dev
 ```
 
 ## Estilos de programación aplicados:
-- Uso de camelCase:
+- Uso de camelCase:(Page/Votacion.js)
 
   const [partidos, setPartidos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,4 +30,11 @@ pnpm dev
       throw error;
     }
   }
-- Linea de codigo menor que 80 caracteres
+- Linea de codigo menor que 80 caracteres (Page/Votacion.js)
+   <Success show={isSuccess} handleClose={logout} isSuccess={success} />
+  <Verify
+    isOpen={isOpen}
+    onRequestClose={() => setIsOpen(false)}
+    onConfirm={handleSubmit}
+    text={"Estas seguro de tu voto?"}
+  />
