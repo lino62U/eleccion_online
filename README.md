@@ -51,5 +51,5 @@ export default async function handlePartidoPolitico(req, res) {
   }
 }
 //- Destructuracion in next.js (pages/api/services)
-/*La desestructuración de accesorios y estados hace que el código sea más conciso y legible*/
+/*La desestructuración de accesorios y estados hace que el código sea más conciso y legible. En lugar de escribir "props.title", puedes escribir "const {title} = props".*/
 const { id_elector, id_partido, fecha } = req.body;
