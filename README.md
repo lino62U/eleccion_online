@@ -10,14 +10,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```
 ## Estilos de programacion
 ```
--Formatos y reglas específicos de declaraciones: if
-// Buscar si el usuario ya ha votado previamente
-    const [find] = await pool.query("SELECT * FROM votos WHERE id_elector = ?", [id_elector]);
-    
-    // Si se encuentra algún voto registrado, devolver un mensaje de error
-    if (find.length > 0) {
-      return res.status(401).json({ message: "Usuario ya votó" });
+-Tantrum
+Estilo de programacion para el manejo de errores a traves de excepciones
+```javascript
+// Enviar el voto al backend
+  static async Sufragar(voto) {
+    try {
+      const response = await axios.post('/api/services/voto', voto);
+      return response;
+    } catch (error) {
+      console.error('Error al enviar el voto:', error);
+      throw error;
     }
+  }
+```
 -Funciones: use funciones de flecha a menos que tenga una razón específica para usar funciones regulares, como en métodos de objetos o constructores, debido a cómo funciona esto. Declararlos como const, y usar retornos implícitos si es posible.
 const getProfile = async () => {
     const res = await axios.get("/api/profile");
@@ -26,7 +32,7 @@ const getProfile = async () => {
       id_elector: res.data.id,
     });
   };
--
+- code-golf
 ```
 ## Convenciones de programación aplicados:
 ```javascript
