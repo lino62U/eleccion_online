@@ -11,7 +11,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Estilos de programacion
 
 ### Tantrum (Data/Repositorio/SendVoto.js)
-Estilo de programacion para el manejo de errores a traves de excepciones
+Estilo de programacion para el manejo de errores a traves de excepciones:
+
 Ejemplo
 ```javascript
 // Enviar el voto al backend
@@ -26,13 +27,14 @@ Ejemplo
   }
 ```
 ### Persistent-tables (pages/api/services/voto.js)
-```
+
 Los datos de entrada del problema se modelan como entidades con relaciones entre ellas
 Los datos se colocan en tablas, con columnas que potencialmente hacen referencia cruzada a datos en otras tablas
 Existencia de un motor de consulta relacional
 El problema se resuelve emitiendo consultas sobre los datos tabulares.
+
 Ejemplo: 
-import { pool } from "@/ldavis/Data/config/db";
+```javascript
 
 export default async function handleVoto(req, res) {
   // Desestructurar los valores recibidos desde el cuerpo de la solicitud
@@ -60,10 +62,12 @@ export default async function handleVoto(req, res) {
 }
 ```
 ### code-golf
-```
+
 Tan pocas líneas de código como sea posible
 Funciones flecha:las funciones de flecha proporcionan una forma concisa de escribir funciones en JavaScript.
+
 Ejemplo:
+```javascript
 const getProfile = async () => {
     const res = await axios.get("/api/profile");
     setVoto({
