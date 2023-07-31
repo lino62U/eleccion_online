@@ -8,7 +8,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Data/Repositorio/PartidosPoliticos.js
 - Data/Repositorio/SendVoto.js
 ```
-## Estilos de programacion
+## Estilos de programación
 
 ### Tantrum (Data/Repositorio/SendVoto.js)
 Estilo de programacion para el manejo de errores a traves de excepciones:
