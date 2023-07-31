@@ -11,17 +11,19 @@ yarn dev
 # or
 pnpm dev
 ```
-
+## Trabajo encargado:
+- pages/votacion.js
+- Data/Repositorio/
 ## Estilos de programación aplicados:
 ```javascript
-##- Uso de camelCase:(Page/Votacion.js)
+//- Uso de camelCase:(Page/Votacion.js)
 
   const [partidos, setPartidos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [success, setSuccess] = useState(false);
   
-##- Manejo de Errores : (Data/Repositorio/PartidosPoliticos.js)
+//- Manejo de Errores : (Data/Repositorio/PartidosPoliticos.js)
   static async getPartidos() {
     try {
       const response = await axios.get('/api/services/partido_politico');
@@ -31,7 +33,7 @@ pnpm dev
       throw error;
     }
   }
-##- Linea de codigo menor que 80 caracteres (Page/Votacion.js)
+//- Linea de codigo menor que 80 caracteres (Page/Votacion.js)
     <Success show={isSuccess} handleClose={logout} isSuccess={success} />
     <Verify
       isOpen={isOpen}
