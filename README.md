@@ -35,7 +35,6 @@ El problema se resuelve emitiendo consultas sobre los datos tabulares.
 
 Ejemplo: 
 ```javascript
-
 export default async function handleVoto(req, res) {
   // Desestructurar los valores recibidos desde el cuerpo de la solicitud
   const { id_elector, id_partido, fecha } = req.body;
