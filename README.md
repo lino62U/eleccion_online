@@ -112,7 +112,7 @@ Linea de codigo menor que 80 caracteres (Page/Votacion.js)
 ```
 ### Comments rules
 Comentarios (page/api/services/PartidoPolitico.js
-```
+```javascript
 export default async function handlePartidoPolitico(req, res) {
   try {
     // Realiza una consulta a la base de datos para obtener los datos de partido_politico
