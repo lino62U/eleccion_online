@@ -87,8 +87,9 @@ Uso de camelCase:(Page/Votacion.js)
   const [isSuccess, setIsSuccess] = useState(false);
   const [success, setSuccess] = useState(false);
 ```
-###   
-//- Manejo de Errores : (Data/Repositorio/PartidosPoliticos.js)
+### Manejo de Errores 
+//Manejo de excepeciones a través de try y catch : (Data/Repositorio/PartidosPoliticos.js)
+```javascript
   static async getPartidos() {
     try {
       const response = await axios.get('/api/services/partido_politico');
@@ -98,6 +99,7 @@ Uso de camelCase:(Page/Votacion.js)
       throw error;
     }
   }
+```
 ### Limit Line Length
 Linea de codigo menor que 80 caracteres (Page/Votacion.js)
 ```javascript
